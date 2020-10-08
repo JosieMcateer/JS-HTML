@@ -1,0 +1,58 @@
+<html>
+<script>
+function help(p){
+    if(p=="+"){
+        document.getElementById("help").innerHTML="addition process";
+    } else{
+
+        if(p=="-"){
+        document.getElementById("help").innerHTML="subtraction process";
+    }
+    if(p=="X"){
+        document.getElementById("help").innerHTML="multiply process";
+    }
+    if(p=="/"){
+        document.getElementById("help").innerHTML="division process";
+    }
+    }
+}
+
+function operation(parameter){
+    var no1=parseInt(document.getElementById("A").value);
+    var no2=parseInt(document.getElementById("B").value);
+    if (parameter=="+"){
+        document.getElementById("C").value=(no1+no2);
+    }
+    if (parameter=="-"){
+        document.getElementById("C").value=(no1-no2);
+    }
+    if (parameter=="X"){
+        document.getElementById("C").value=(no1*no2);
+    }
+    if (parameter=="/"){
+        document.getElementById("C").value=(no1/no2);
+}
+
+</script>
+<table>
+<tr>
+
+    <td> First Number</td>
+    <td> <input id="A"></td>
+</tr>
+<tr>
+    <td> Second Number</td>
+    <td> <input id="B"></td>
+</tr>
+<tr>
+    <td> Result</td>
+    <td> <input id="C"></td>
+</tr>
+<tr>
+    <td> <input type="button" value="+"> </td>
+    <td> <input type="button" value="-"> </td>
+    <td> <input type="button" value="x"> </td>
+    <td> <input type="button" value="/"> </td>
+</tr>
+</table>
+</html>

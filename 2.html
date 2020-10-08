@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<script>
+    function hideerror(){
+        document.getElementById(ID).style.visibility="hidden";
+    }
+    function checksomething(actualdata,find){
+        
+        let found=0;
+        for(let i=0;i<actualdata.length;i++){
+            if (actualdata.substring(i,i+1)==find){
+                    found++;
+            }
+            console.log(actualdata+"..."+find+"..."+found);
+        } 
+        
+        return found;
+    }
+
+    function hideerror(ID){
+        document.getElementById(ID).style.visibility="hidden";
+    }
+
+    function checkvalues(){
+        var data=true;
+        if (document.getElementById("name").value==""){
+            document.getElementById("errorname").style.visibility="visible";
+            document.getElementById("address").focus();
+            data=false;
+        }
+        if (document.getElementById("address").value==""){
+            
+            document.getElementById("erroraddress").style.visibility="visible";
+            document.getElementById("address").focus();
+            data=false;
+        }
+        if (document.getElementById("email").value==""){
+            document.getElementById("erroremail").style.visibility="visible";
+            document.getElementById("email").focus();
+            data=false;
+        }
+            else{
+                let atsign=0;
+                let emailaddress= document.getElementById("email").value;
+                for( let i=0;i<emailaddress.length;i++){
+                    if (emailaddress.substring(i,i+1)=="@"){
+                        atsign++;
+                    }
+                }
+                 if (atsign!=1){
+                    document.getElementById("erroremail").style.visibility="visible";
+                    document.getElementById("erroremail").innerHTML="invalid email address";
+                    data=false;
+                }
+            let dots=checksomething(document.getElementById("email").value,".");
+            alert("dots..."+dots);
+            if(dots==0){
+                document.getElementById("erroremail").style.visibility="visible";
+                document.getElementById("erroremail").innerHTML="donot, invalid";
+                data=false;
+            }
+            }
+        
+        if (document.getElementById("phone").value==""){
+            document.getElementById("errorphone").style.visibility="visible";
+            document.getElementById("phone").focus();
+            data=false;
+        }
+
+        return data;
+    }
+
+</script>
+    <form action="https://bbc.co.uk" onsubmit="return checkvalues()">
+    Name: <input name ="name" id="name" onkeypress="hideerror(`errorname`)"> <span id="errorname" style="color:red;visibility:hidden"> ** </span> <br>
+    Address: <input name ="address" id="address" onkeypress="hideerror(`erroraddress`)"> <span id="erroraddress" style="color:red;visibility:hidden"> ** </span> <br>
+    Email:<input name ="email" id="email" onkeypress="hideerror(`erroremail`)"> <span id="erroremail" style="color:red;visibility:hidden"> ** </span> <br>
+    Phone:<input name ="phone" id="phone" onkeypress="hideerror(`errorphone`)"> <span id="errorphone" style="color:red;visibility:hidden"> ** </span> <br>
+  
+    <input type="submit"/>
+    
+    </form>
+    
+</body>
+</html>

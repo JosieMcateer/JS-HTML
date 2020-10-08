@@ -1,0 +1,33 @@
+<html>
+<script>
+function doMath(){
+    alert(opt.value);
+        var no1= parseInt(document.getElementId("A").value);
+        var no2= parseInt(document.getElementId("B").value);
+    if (opt.value=="+"){
+        document.getElementId("C").value=no1+no2;
+    }else{
+        if (opt.value=="-"){
+            document.getElementId("C").value=no1-no2;
+        }else{
+            if (opt.value=="/"){
+                document.getElementId("C").value=no1/no2;
+            }else{
+                if (opt.value=="x"){
+                    document.getElementId("C").value=no1*no2;
+    }
+    }
+    }
+    }   
+}
+</script>
+
+First Number: <input type="text" id="A"> <BR>
+Second Number: <input type="text" id="B"> <BR>
+<input type="button" value="+" onclick="doMath(this)">
+<input type="button" value="-" onclick="doMath(this)">
+<input type="button" value="/" onclick="doMath(this)">
+<input type="button" value="*" onclick="doMath(this)">
+<br>
+Result: <input type="text" id="C"> <BR>
+</html>

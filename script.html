@@ -1,0 +1,50 @@
+<html>
+<script>
+var left = 0;
+var gunref="";
+var bulletref="";
+var firetimer="";
+// var bulletref="";
+
+function constructor(){
+    gunref=window.document.getElementById("gun");
+    //bulletref=window.document.getelementbyid("buller");
+}
+function firing(){
+    var position=parseInt(bulletref.style.top);
+    position--;
+    bulletref.style.top=position;
+    if(position<=10){
+window.clearInterval(firetimer);
+    }
+}
+function move(){
+    if(window.event.keyCode==32){
+        bulletref=document.createElement("span");
+        bulletref.innerHTML="*";
+        bulletref.style="position:absolute";
+        bulletref.style.top=790;
+        bulletref.style.left=parseInt(gunref.style.left)+9;
+        document.body.appendChild(bulletref);
+        firetimer=window.setInterval(firing,10);
+    }
+    if(window.event.keyCode==39){
+        if(left<=1000){
+            left+=10;
+            gunref.style.left=left;
+        }
+    }
+    if(window.event.keyCode==37){
+        if(left>=10){
+            left-=10;
+            gunref.style.left=left;
+        }
+    }
+}
+</script>
+<body onkeydown="move()" onload="constructor()">
+    <span id="gun" style="position:absolute;top:800">
+    _II_
+</span>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+
+<script>
+    var fz=10;
+//     function changethedata(){
+//         var data=window.document.getElementById("T").value;
+//         if (data!=""){
+//         window.document.getElementById("span1").innerHTML=data;
+//     }
+// }
+
+function mousemoving(){
+    if (window.event.ctrlKey){
+        fz++;
+    }
+    if (window.event.altKey){
+        fz--;
+    }
+    var refSpan=window.document.getElementById("span1");
+    refSpan.style.fontSize=fz;
+    refSpan.style.top=window.event.clientY + 10;
+    refSpan.style.left=window.event.clientX;
+    ref.style.fontSize=fz;
+}
+
+function changered(){
+
+    let bod =document.getElementById("bod");
+    bod.style.color="red";
+
+ }
+
+ function changegreen(){
+
+    let bod =document.getElementById("bod");
+    bod.style.color="green";
+ }
+</script>
+
+<body onmousemove="mousemoving()"id="bod">
+<!-- <input type="text" id="T" onmouseentering="changethedata()"> -->
+<input type="button" value="RED" onclick="changered()">
+<input type="button" value="Green" onclick="changegreen()">
+<span id="span1" style="position:absolute" > Nationwide </span>
+</body>
+</html>

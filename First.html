@@ -1,0 +1,23 @@
+<html>
+
+<script>
+    function dosomething(){
+        alert("hello");
+    }
+    function boom(){
+        var data = window.document.Form1.msg.value;
+        alert(data);
+    }
+
+    function storedata(){
+        window.document.Form1.msg.value="QA consulting";
+    }
+</script>
+
+<Form name ="Form1">
+<input type="text" name="msg"> <br><br>
+<input type="button" value="click-1" onclick="dosomething()" name="btn1"><br><br>
+<input type="button" value="click-2" onclick="boom()" name="btn2"> <br><br>
+<input type="button" value="click-3" name="btn3" onclick="storedata()"> <br> <br>
+</Form>
+</html>
