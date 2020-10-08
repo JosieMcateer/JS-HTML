@@ -1,0 +1,78 @@
+<html>
+<script>
+var records=
+[
+    {
+        "name":"josie",
+        "marks":"78",
+    },
+    {
+        "name":"john",
+        "marks":"45",
+    },
+];
+
+function addrecord(){
+    records.push(
+        {
+            "name":document.getElementById("n").value,
+            "marks":document.getElementById("m").value,
+            "address":document.getElementById("a").value,
+        }
+    );
+    console.log(records);
+    var div=document.createElement("div");
+                    var nameSpan=document.createElement("span");
+                    var marksSpan=document.createElement("span");
+                    var perSpan=document.createElement("span");
+                    var btn=document.createElement("input");
+                        btn.type="button";
+                        btn.value="click to see the address";
+                        btn.onclick=function(){
+                            alert("address: " + records[records.length-1].address);
+                        }
+                nameSpan.innerHTML=records[records.length-1].name + " ";
+                marksSpan.innerHTML=records[records.length-1].marks + " ";
+                perSpan.innerHTML=parseInt(records[records.length-1].marks)*100/150 +"%";
+                alert(nameSpan.innerHTML+" ---");
+                div.style.colot="red";
+                div.appendChild(nameSpan);
+                div.appendChild(marksSpan);
+                div.appendChild(perSpan);
+                div.appendChild(btn);
+                document.body.appendChild(div);
+}
+function show() {
+            console.log(records.length);
+
+            for(let i=0; i<records.length; i++) {
+                var div=document.createElement("div");
+                    var nameSpan=document.createElement("span");
+                    var marksSpan=document.createElement("span");
+                    var perSpan=document.createElement("span");
+                    var btn=document.createElement("input");
+                        btn.type="button";
+                        btn.value="click to see the address";
+                        btn.onclick=function(){
+                            alert(records[i].address);
+                        }
+                        
+                nameSpan.innerHTML=records[i].name + " ";
+                marksSpan.innerHTML=records[i].marks + " ";
+                perSpan.innerHTML=parseInt(records[i].marks)*100/150 +"%";
+
+                div.style.colot="red";
+                div.appendChild(nameSpan);
+                div.appendChild(marksSpan);
+                div.appendChild(perSpan);
+                div.appendChild(btn);
+                document.body.appendChild(div);
+            }
+        }
+    </script>
+    <input id="n"/>
+    <input id="m"/>
+    <input id="a"/>
+    <input type="button" value="show record" onclick="show()">
+    <input type="button" value="add record" onclick="addrecord()">
+</html>
